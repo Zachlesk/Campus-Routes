@@ -18,3 +18,5 @@ export const generateJWT = (uid= '') => {
         
 })
 }
+
+export default generateJWT;

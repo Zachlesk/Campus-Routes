@@ -9,7 +9,7 @@ const rutaSchema = Schema({
     centro: {
         type: Schema.Types.ObjectId,
         required: true,
-        ref: 'centro',
+        ref: 'centros',
         trim: true,
     }
 })

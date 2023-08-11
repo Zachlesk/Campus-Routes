@@ -3,26 +3,25 @@ import { check } from 'express-validator';
 
 import { validationDocuments } from '../middlewares/validate.documents.js';
 
-import { getLevels, postLevels } from '../controllers/level.controller.js';
+import { getLevels, postLevels, deleteLevels, putLevels } from '../controllers/level.controller.js';
 
 const router = Router();
 
 router.get('/',
     check()
-,getCentros); 
+,getLevels); 
 
 router.post('/',
     check('nombre', 'Name invalid').not().isEmpty(),
     validationDocuments
-,postCentros); 
+,postLevels); 
 
 router.delete('/',
-
-    deleteCentros
+    deleteLevels
 )
 
 router.put('/',
-    putCentros
+    putLevels
 )
 
 export default router;

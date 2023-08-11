@@ -1,13 +1,14 @@
-import {Schema, model} from 'mongoosee';
+import {Schema, model} from 'mongoose';
 
 const rolSchema = Schema({
     rol:{
         type: String,
         required: true,
-        default: ['CAMPER', 'TRAINER', 'GERENTE']
+        enum: ['CAMPER', 'TRAINER', 'GERENTE'],
+        default: ['CAMPER']
     }
 })
 
-const Centro = model('centros', centroSchema);
+const Role = model('roles', rolSchema);
 
-export default Centro;
+export default Role;

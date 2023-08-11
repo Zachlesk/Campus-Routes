@@ -3,6 +3,7 @@ import { check } from 'express-validator';
 
 import { validationDocuments } from '../middlewares/validate.documents.js';
 
+
 import { getCentros, postCentros, deleteCentros, putCentros } from '../controllers/centro.controller.js';
 
 const router = Router();

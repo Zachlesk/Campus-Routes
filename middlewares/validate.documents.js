@@ -11,3 +11,5 @@ export const validationDocuments = async (req, res, next) => {
         console.log(err);
     }
 }
+
+export default validationDocuments;

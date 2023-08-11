@@ -1,6 +1,6 @@
 import {Schema, model} from 'mongoose';
 
-const camperSchema = Schema({
+const camperSchema = new Schema({
     nombre:{
         type: String,
         required: true,
@@ -11,7 +11,7 @@ const camperSchema = Schema({
         required: true,
         trim: true,
     },
-    nroIdentificaciom: {
+    nroIdentificacion: {
         type: Number,
         required: true,
         trim: true
@@ -29,16 +29,19 @@ const camperSchema = Schema({
     },
     level: {
         type: Schema.Types.ObjectId,
+        ref: 'levels',
         required: true,
         trim: true
     },
     levelState: {
         type: String,
+        enum: ['finished', 'pending'],
         trim: true
     },
     estado: {
         type: Boolean,
         trim: true,
+        default: true,
         required: true
     },
     imagen: {
@@ -46,7 +49,9 @@ const camperSchema = Schema({
     },
     rol: {
         type: Schema.Types.ObjectId,
-        trim: true,
+        ref: 'roles',
+        required: true,
+        trim: true  
     },
     promedio: {
         type: Number,

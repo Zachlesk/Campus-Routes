@@ -1,9 +1,10 @@
-const { response } = require('express');
-const Camper = require('../models/Camper.js');
-const bcryptjs = require('bcryptjs');
-const { generateJWT } = require('../helpers/generate.JWT.js');
+import { response } from 'express';
+import Camper from '../models/Camper.js';
+import bcryptjs from 'bcryptjs';
 
-export const validaciones = async (req, res=response)=>{
+import { generateJWT } from '../helpers/generateJWT.js';
+
+export const validaciones = async (req, res = response)=>{
 
     const {email, password} = req.body;
     try {
@@ -22,7 +23,7 @@ export const validaciones = async (req, res=response)=>{
             })
         }
 
-        const validPassword = bcryptjs.compareSync(password, usuario.password);
+        const validPassword = bcryptjs.compareSync(password, camper.password);
         if (!validPassword){
             return res.status(400).json({
                 msg:"El password es incorrecto"
@@ -43,3 +44,5 @@ export const validaciones = async (req, res=response)=>{
         })
     }
 }
+
+export default validaciones;

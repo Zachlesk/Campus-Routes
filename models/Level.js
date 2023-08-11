@@ -1,6 +1,6 @@
 import {Schema, model} from 'mongoose';
 
-const levelSchema = Schema({
+const levelSchema = new Schema({
     nombre:{
         type: String,
         required: true,
@@ -9,13 +9,12 @@ const levelSchema = Schema({
     ruta: {
         type: Schema.Types.ObjectId,
         required: true,
-        ref: 'ruta',
+        ref: 'rutas',
         trim: true,
     },
     duracion: {
         type: String,
         required: true,
-        default: true,
         trim: true
     }
 })

@@ -1,6 +1,6 @@
-import mongoose from 'mongoose';
+import {Schema, model}  from 'mongoose';
 
-const centroSchema = mongoose.Schema({
+const centroSchema = new Schema({
     nombre:{
         type: String,
         required: true,
@@ -8,7 +8,6 @@ const centroSchema = mongoose.Schema({
     },
     descripcion: {
         type: String,
-        required: true,
         trim: true,
     },
     estado: {
@@ -24,6 +23,6 @@ const centroSchema = mongoose.Schema({
     }
 })
 
-const Centros = mongoose.model('centros', centroSchema);
+const Centros = model('centros', centroSchema);
 
 export default Centros;
